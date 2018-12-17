@@ -1,37 +1,40 @@
-/* Created by Faiyaz Mostofa.
+/* Created by FIRE.
  * Some starter code used from: https://books.trinket.io/thinkjava/appendix-b.html
  * The class that manages the GUI of the main program. 
  * To-do:
  * 	- Create a working chat log
- * 	- Create a working graph that changes over time. */
+ * 	- Create a working graph that changes over time. 
+ *	  A simple 2 axis emotion graph */
 
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Graphics;
 import javax.swing.JFrame;
+import java.awt.TextArea;
 
-public class GUI extends Canvas {
+public class GUI extends JFrame {
 	
-	private TextLog textlog = new TextLog();
+	private TextArea textlog = new TextArea();
 	
 	/* Default Constructor. 
 	 * Start up the GUI for the program. */
 	public GUI() {
-		JFrame frame = new JFrame("Current: ");
-		textlog.push("Hello World!");
-        setSize(400, 400);
-        frame.add(textlog);
-        frame.add(this);
-        frame.pack();
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setVisible(true);
+		setName("defaultname");
+        setSize(1280, 720);
+        textlog.setSize(getPreferredSize());
+        add(textlog);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setVisible(true);
 	}
 	
-	/* This refreshes repeatedly. */
-	public void paint(Graphics g) {
-		g.setColor(Color.RED);
-		g.fillOval(getWidth()/4, getHeight()/4, getWidth()/2, getHeight()/2);
-		g.setColor(Color.GREEN);
-		textlog.repaint(g);
+	/* Constructor.
+	 * */
+	public GUI(String name) {
+		setName(name);
+        setSize(1280, 720);
+        textlog.setSize(getPreferredSize());
+        add(textlog);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setVisible(true);
 	}
 }

@@ -1,3 +1,5 @@
+/* Created by FIRE.
+ * Concept for a chat log. NOT WORKING CODE. */
 
 import java.awt.Component;
 import java.awt.Graphics;
