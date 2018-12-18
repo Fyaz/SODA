@@ -14,14 +14,26 @@ import java.awt.TextArea;
 
 public class GUI extends JFrame {
 	
-	private TextArea textlog = new TextArea();
+	private TextLog textlog = new TextLog();
 	
 	/* Default Constructor. 
 	 * Start up the GUI for the program. */
 	public GUI() {
+		// Configure the window
 		setName("defaultname");
         setSize(1280, 720);
-        textlog.setSize(getPreferredSize());
+        
+        // Configure components
+        textlog.push("Hello World!");
+        textlog.push("HAHAHA!");
+        textlog.pop();
+        textlog.pop();
+        textlog.pop();
+        textlog.setSize(textlog.getPreferredSize());
+        textlog.setBackground(new Color(51,51,51));
+        textlog.setForeground(new Color(255,255,255));
+        
+        // Add components to the Window
         add(textlog);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
@@ -30,11 +42,22 @@ public class GUI extends JFrame {
 	/* Constructor.
 	 * */
 	public GUI(String name) {
-		setName(name);
-        setSize(1280, 720);
-        textlog.setSize(getPreferredSize());
-        add(textlog);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setVisible(true);
+		// Configure the window
+		setName("defaultname");
+		setSize(1280, 720);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		      
+		// Configure components
+		textlog.setSize(textlog.getPreferredSize());
+		textlog.setBackground(new Color(51,51,51));
+		textlog.setForeground(new Color(255,255,255));
+		        
+		// Add components to the Window
+		add(textlog);
+		setVisible(true);
+	}
+	
+	public void addText(String text) {
+		textlog.push(text);
 	}
 }
